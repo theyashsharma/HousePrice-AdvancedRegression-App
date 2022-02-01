@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <title> House Price prediction </title>
+</head>
+<body>
+    <h2>Check the Sale Price of you House</h2>
+    <h3>Please enter details:</h3>
+    <br>
+
+    <form method = "post" enctype="multipart/form-data", action = "predictPrice">
+ 
+ {% csrf_token %}
+ <div class="col-md-4 col-sm-4"><label for="fname">Lot size in square feet:</label> </div> <input name="LotArea" type="text" value={{temp.LotArea}}><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname">Above grade (ground) living area square feet:</label> </div> <input type="text" id="lname" name="GrLivArea" value={{temp.GrLivArea}}><br><br>
+ <div class="col-md-4 col-sm-4"><label for="fname">First Floor square feet:</label> </div> <input type="text" id="fname" name="1stFlrSF" value={{temp.1stFlrSF}}><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname">Total square feet of basement area:</label> </div> <input type="text" id="lname" name="TotalBsmtSF" value={{temp.TotalBsmtSF}}><br><br>
+ <div class="col-md-4 col-sm-4"><label for="fname">Type 1 finished square feet:</label></div>  <input type="text" id="fname" name="BsmtFinSF1" value={{temp.BsmtFinSF1}}><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname">Size of garage in square feet:</label> </div> <input type="text" id="lname" name="GarageArea" value={{temp.GarageArea}}><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname">Wood deck area in square feet:</label> </div> <input type="text" id="lname" name="WoodDeckSF" value={{temp.WoodDeckSF}}><br><br>
+ <br>
+ <input type="submit" value="Submit" ></div>
+
+ </form>
+ <br>
+
+ {% if priceval %}
+ <h1>The Sale Price is : {{priceval}}</h1>
+ {% endif %}
+  
+ </body>
+ </html>
